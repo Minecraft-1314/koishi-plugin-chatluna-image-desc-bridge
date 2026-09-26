@@ -1,0 +1,63 @@
+{
+  "name": "koishi-plugin-chatluna-image-desc-bridge",
+  "description": "Koishi 图像描述转发插件，把 koishi-plugin-chatluna-multimodal-service 生成的图像描述从 messageTransformer 结果转发进 ChatLuna 伪装插件的消息正文，关闭 toolCalling 且模型非多模态时也能识图",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": ["lib"],
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rimraf lib"
+  },
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin",
+    "chatluna",
+    "chatluna-plugin",
+    "multimodal",
+    "image",
+    "vision",
+    "character",
+    "transformer",
+    "cache",
+    "debug",
+    "图像描述",
+    "识图",
+    "多模态",
+    "伪装插件",
+    "主插件",
+    "角色扮演",
+    "拦截器",
+    "调试模式"
+  ],
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "rimraf": "^5.0.5"
+  },
+  "peerDependencies": {
+    "koishi": "^4.18.7",
+    "koishi-plugin-chatluna": "^1.4.0-rc.0",
+    "koishi-plugin-chatluna-character": "^0.0.234",
+    "koishi-plugin-chatluna-multimodal-service": "^1.4.0"
+  },
+  "koishi": {
+    "description": {
+      "zh": "把多模态服务生成的图像描述转发进 ChatLuna 伪装插件的消息正文，无需修改伪装插件源码",
+      "en": "Forwards image descriptions produced by the multimodal service into the chatluna-character message body without patching that plugin"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minecraft-1314/koishi-plugin-chatluna-image-desc-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Minecraft-1314/koishi-plugin-chatluna-image-desc-bridge/issues"
+  },
+  "homepage": "https://github.com/Minecraft-1314/koishi-plugin-chatluna-image-desc-bridge#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

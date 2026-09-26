@@ -1,0 +1,24 @@
+export declare const LOG_KEY = "chatluna-image-desc-bridge";
+export declare const IMAGE_INPUT_CAPABILITY = "image_input";
+export declare const IMAGE_MARKER_PATTERN: RegExp;
+export declare const DEFAULT_SNAPSHOT_PRIORITY = -200;
+export declare const DEFAULT_HARVEST_PRIORITY = 200;
+export declare const DEFAULT_MIN_DESCRIPTION_LENGTH = 0;
+export declare const DEFAULT_CACHE_TTL_MINUTES = 30;
+export declare const DEFAULT_CACHE_MAX_ENTRIES = 200;
+export declare const CACHE_TTL_MIN_MINUTES = 1;
+export declare const CACHE_TTL_MAX_MINUTES = 1440;
+export declare const CACHE_ENTRIES_MIN = 1;
+export declare const CACHE_ENTRIES_MAX = 5000;
+export declare const PRIORITY_MIN = -9000;
+export declare const PRIORITY_MAX = 9000;
+export declare const MIN_DESCRIPTION_LENGTH_MIN = 0;
+export declare const MIN_DESCRIPTION_LENGTH_MAX = 500;
+export declare const SKIP_LABEL_DISABLED = "\u63D2\u4EF6\u672A\u542F\u7528";
+export declare const SKIP_LABEL_NOT_CHARACTER = "\u975E\u4F2A\u88C5\u63D2\u4EF6\u6D41\u7A0B";
+export declare const SKIP_LABEL_VISION_MODEL = "\u6A21\u578B\u652F\u6301\u56FE\u7247\u8F93\u5165";
+export declare const SKIP_LABEL_NO_URL = "\u5143\u7D20\u65E0\u56FE\u7247\u5730\u5740";
+export declare const TRACE_KINDS: readonly ["hook", "cache", "convert", "timing"];
+export declare const TRACE_KIND_LABELS: Record<string, string>;
+export declare const STARTUP_HINT: string;
+//# sourceMappingURL=constants.d.ts.map
