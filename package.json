@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-chatluna-image-desc-bridge",
   "description": "Koishi 图像描述转发插件，把 koishi-plugin-chatluna-multimodal-service 生成的图像描述从 messageTransformer 结果转发进 ChatLuna 伪装插件的消息正文，关闭 toolCalling 且模型非多模态时也能识图",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": ["lib"],

@@ -27,5 +27,5 @@ export function toTextElement(element: TransformElement, text: string): boolean 
 
 export function isCharacterFlow(message: TransformMessage | undefined | null): boolean {
   if (!message || typeof message !== 'object') return false
-  return !('conversationId' in message)
+  return message.conversationId == null
 }

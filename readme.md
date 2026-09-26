@@ -53,9 +53,19 @@ A **image description bridge plugin** for Koishi. It forwards the image descript
 
 ### 流程判定 (Flow Detection)
 
-伪装插件调用 `transform(session, elements, model)` 时不传 message 对象，走的是 `transform()` 内部的默认值 `{ content, name, additional_kwargs }`，**根本没有 `conversationId` 这个键**。主插件的两条路径都显式传了该键，哪怕值是 `undefined`。
+伪装插件调用 `transform(session, elements, model)` 时不传 message 对象，走的是 `transform()` 内部的默认值 `{ content, name, additional_kwargs }`，其中 `conversationId` 为 `undefined`。主插件的各条路径都显式传入真实会话 id。
 
-所以判据是**键是否存在**，而不是值是否为空。这一点很关键：主插件的 `transform_chat_message` 里写的是 `conversationId: resolved.conversation?.id`，在没有解析出会话时它就是 `undefined`，按值判断会误判。
+所以判据是**值是否为空**，即 `message.conversationId == null`。
+
+这里必须按值判断，不能按「键是否存在」判断。原因是 `transform()` 在处理引用消息时会递归调用自身，而递归时构造的 message 对象是：
+
+```js
+{ content: "", name: session.username, conversationId: message.conversationId, additional_kwargs: {} }
+```
+
+`conversationId` 这个**键始终存在**，值却可能是 `undefined`。伪装插件带引用回复时走的就是这条递归路径，若按键存在性判断，引用里的图片会被误判成主插件流程而直接跳过。
+
+上游主插件写的是 `conversationId: resolved.conversation?.id`（`rollback` 等路径写 `current.id`），解析不到会话时得到 `undefined`，不会产生 `null`，因此按值判断不会把主插件流程误认为伪装流程。
 
 ### 过滤规则 (Filter Rules)
 

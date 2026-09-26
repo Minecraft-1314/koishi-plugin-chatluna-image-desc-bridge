@@ -15,9 +15,9 @@ export function readTransformer(ctx: Context): MessageTransformerLike | undefine
 
 export function supportsImageInput(ctx: Context, model: unknown): boolean {
   if (!model || typeof model !== 'string') return false
-  const findModel = readChatLuna(ctx)?.platform?.findModel
-  if (typeof findModel !== 'function') return false
-  const capabilities = findModel(model)?.value?.capabilities
+  const platform = readChatLuna(ctx)?.platform
+  if (typeof platform?.findModel !== 'function') return false
+  const capabilities = platform.findModel(model)?.value?.capabilities
   if (!Array.isArray(capabilities)) return false
   return capabilities.includes(IMAGE_INPUT_CAPABILITY)
 }
